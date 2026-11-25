@@ -1,5 +1,6 @@
 """出場者の一覧（公式サイト）と、調べたチャンネル（channels.json）から streamers.js を作る。"""
 import json, os, sys
+HERE = os.path.dirname(os.path.abspath(__file__))
 TEAMS = {
   "TEAM k4sen": ["k4sen", "布団ちゃん", "ふらんしすこ", "あゆたろう", "柊ツルギ", "ゆふな", "天月", "よしなま", "RaMu", "Foy", "ゆゆうた"],
   "TEAM SHAKA": ["SHAKA", "rion", "SPYGEA", "赤見かるび", "ボドカ", "鈴木ノリアキ", "恭一郎", "伊織もえ", "らっしゃー", "ごっちゃん@マイキー", "わいわい"],
@@ -17,7 +18,7 @@ OFFICIAL = [
   {"id": "kato", "name": "加藤純一（本編の同時配信）", "team": "公式配信", "twitch": "kato_junichi0817"},
 ]
 known = {}
-path = "channels.json"
+path = os.path.join(HERE, "channels.json")
 if os.path.exists(path):
     for c in json.load(open(path)):
         known[c["name"]] = c
@@ -36,7 +37,7 @@ for team, names in TEAMS.items():
         if c.get("youtubeId"): s["youtubeId"] = c["youtubeId"]
         if c.get("main") in ("twitch", "youtube"): s["main"] = c["main"]
         out.append(s)
-with open("app/streamers.js", "w") as f:
+with open(os.path.join(HERE, "..", "streamers.js"), "w") as f:
     f.write("/* 出場者と配信チャンネル。公式サイト（lp.openrec.jp/hyper-game-event-final）の出場者一覧をもとに作成 */\n")
     f.write("window.STREAMERS = " + json.dumps(out, ensure_ascii=False, indent=1) + ";\n")
 print(len(out), "件", sum(1 for s in out if s.get("twitch") or s.get("youtubeId") or s.get("youtubeVideo")), "件にチャンネルあり")
