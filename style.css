@@ -1,0 +1,136 @@
+/* 配信を見る道具なので、映像が主役になる暗い面で統一する */
+:root {
+  --bg: #0b0d12;
+  --panel: #131722;
+  --panel-2: #1a1f2d;
+  --line: #262c3d;
+  --fg: #e9ecf3;
+  --muted: #8b93a7;
+  --accent: #ffcc33;
+  --danger: #ff6b6b;
+  --team-official: #f4f5f8;
+  --team-k4sen: #f2c14e;
+  --team-shaka: #4ea8f2;
+  --team-mokou: #f25c78;
+  --team-seki: #4fd1a0;
+  --team-revengers: #b48cf2;
+  --team-mc: #a7b0c4;
+  --font-ui: "Noto Sans JP", system-ui, -apple-system, "Hiragino Sans", sans-serif;
+  --font-display: "M PLUS 1p", "Noto Sans JP", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-ui); font-size: 14px; overflow: hidden; }
+button { font: inherit; color: inherit; }
+svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* 上の帯 */
+.bar {
+  display: flex; align-items: center; gap: 12px; height: 52px;
+  padding-block: 0; padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px));
+  background: var(--panel); border-bottom: 1px solid var(--line);
+}
+.brand { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 18px; letter-spacing: 0.02em; white-space: nowrap; }
+.brand-mark { display: inline-block; padding: 1px 7px; margin-right: 2px; background: var(--accent); color: #111; border-radius: 4px; }
+.brand-sub { font-weight: 500; font-size: 14px; color: var(--muted); margin-left: 4px; }
+.bar-tools { display: flex; align-items: center; gap: 8px; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+.icon-btn { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-2); cursor: pointer; flex: none; }
+.tool-btn { height: 34px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-2); cursor: pointer; white-space: nowrap; }
+.tool-btn:hover, .icon-btn:hover { border-color: #3a4258; }
+.tool-btn[aria-pressed="true"] { background: var(--accent); color: #111; border-color: var(--accent); font-weight: 700; }
+.tool-btn.danger:hover { border-color: var(--danger); color: var(--danger); }
+.seg { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; flex: none; }
+.seg-btn { height: 32px; padding: 0 12px; border: 0; background: var(--panel-2); cursor: pointer; white-space: nowrap; }
+.seg-btn + .seg-btn { border-left: 1px solid var(--line); }
+.seg-btn[aria-pressed="true"] { background: var(--fg); color: #111; font-weight: 700; }
+
+/* 本体 */
+.shell { display: flex; height: calc(100% - 52px); }
+.side { width: 300px; flex: none; display: flex; flex-direction: column; background: var(--panel); border-right: 1px solid var(--line); min-height: 0; }
+.side[hidden] { display: none !important; }
+.side-head { padding: 12px; border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
+.search { display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--muted); }
+.search input { flex: 1; min-width: 0; border: 0; background: none; color: var(--fg); font: inherit; outline: none; }
+.side-count { margin: 0; font-size: 12px; color: var(--muted); }
+.side-count span { color: var(--fg); font-weight: 700; font-variant-numeric: tabular-nums; }
+.side-list { flex: 1; overflow-y: auto; padding: 4px 8px 12px; }
+.team { margin-top: 10px; }
+.team-head { display: flex; align-items: center; gap: 8px; padding: 6px 4px; font-family: var(--font-display); font-weight: 700; font-size: 13px; }
+.team-dot { width: 10px; height: 10px; border-radius: 3px; background: var(--team); flex: none; }
+.team-add { margin-left: auto; font-family: var(--font-ui); font-weight: 500; font-size: 12px; color: var(--muted); background: none; border: 0; cursor: pointer; padding: 2px 4px; border-radius: 4px; }
+.team-add:hover { color: var(--fg); }
+.member { display: flex; align-items: center; gap: 8px; width: 100%; padding: 7px 8px; border: 1px solid transparent; border-radius: 8px; background: none; cursor: pointer; text-align: left; }
+.member:hover { background: var(--panel-2); }
+.member[aria-pressed="true"] { background: color-mix(in srgb, var(--team) 16%, transparent); border-color: color-mix(in srgb, var(--team) 55%, transparent); }
+.member:disabled { cursor: default; color: var(--muted); }
+.member:disabled:hover { background: none; }
+.member-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.member-role { font-size: 11px; color: var(--muted); }
+.badge { font-size: 10px; font-weight: 700; line-height: 1; padding: 3px 5px; border-radius: 4px; letter-spacing: 0.04em; }
+.badge-tw { background: #9146ff; color: #fff; }
+.badge-yt { background: #ff3b3b; color: #fff; }
+.badge-none { background: var(--panel-2); color: var(--muted); font-weight: 500; }
+.check { width: 18px; height: 18px; border-radius: 5px; border: 1.5px solid #3a4258; display: grid; place-items: center; flex: none; }
+.member[aria-pressed="true"] .check { background: var(--team); border-color: var(--team); }
+.member[aria-pressed="true"] .check::after { content: ""; width: 8px; height: 4px; border: 2px solid #111; border-top: 0; border-right: 0; transform: rotate(-45deg) translate(1px, -1px); }
+.add { padding: 12px; border-top: 1px solid var(--line); display: grid; gap: 6px; }
+.add label { font-size: 12px; color: var(--muted); }
+.add-row { display: flex; gap: 6px; }
+.add-row input { flex: 1; min-width: 0; height: 34px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); font: inherit; }
+.add-row button { height: 34px; padding: 0 12px; border: 0; border-radius: 8px; background: var(--accent); color: #111; font-weight: 700; cursor: pointer; }
+.add-msg { margin: 0; min-height: 1.2em; font-size: 12px; color: var(--muted); }
+.add-msg.err { color: var(--danger); }
+.side-note { margin: 0; padding: 0 12px 12px; font-size: 11px; line-height: 1.6; color: var(--muted); }
+
+/* 窓を並べる面 */
+.stage { position: relative; flex: 1; min-width: 0; padding: 8px; }
+.empty { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 10px; padding: 24px; text-align: center; }
+.empty[hidden] { display: none; }
+.empty-title { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 22px; }
+.empty-sub { margin: 0 0 6px; max-width: 34em; color: var(--muted); line-height: 1.7; }
+.grid { position: absolute; inset: 8px; }
+.tile { position: absolute; background: #000; border-radius: 8px; overflow: hidden; outline: 2px solid transparent; transition: outline-color 0.15s; }
+.tile.audio { outline-color: var(--accent); }
+.tile-player, .tile-player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tile-bar {
+  position: absolute; left: 0; right: 0; top: 0; display: flex; align-items: center; gap: 6px; padding: 6px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0)); opacity: 0; transition: opacity 0.15s; pointer-events: none;
+}
+.tile:hover .tile-bar, .tile:focus-within .tile-bar, .tile.touch .tile-bar { opacity: 1; pointer-events: auto; }
+.tile-name { display: inline-flex; align-items: center; gap: 6px; min-width: 0; padding: 3px 8px; border-radius: 6px; background: rgba(0, 0, 0, 0.55); font-weight: 700; font-size: 13px; }
+.tile-name span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tile-team { width: 8px; height: 8px; border-radius: 2px; background: var(--team); flex: none; }
+.tile-actions { display: flex; gap: 4px; margin-left: auto; }
+.tile-btn { display: grid; place-items: center; height: 30px; min-width: 30px; padding: 0 8px; border: 0; border-radius: 6px; background: rgba(0, 0, 0, 0.6); cursor: pointer; font-size: 12px; white-space: nowrap; }
+.tile-btn:hover { background: rgba(255, 255, 255, 0.18); }
+.tile-btn.on { background: var(--accent); color: #111; font-weight: 700; }
+.tile-label { position: absolute; left: 8px; bottom: 8px; padding: 2px 8px; border-radius: 6px; background: rgba(0, 0, 0, 0.6); font-size: 12px; font-weight: 700; pointer-events: none; display: inline-flex; align-items: center; gap: 6px; }
+.tile:hover .tile-label { opacity: 0; }
+.tile.audio .tile-label::before { content: "音声"; padding: 1px 5px; border-radius: 4px; background: var(--accent); color: #111; font-size: 10px; }
+
+/* チャット */
+.chat { width: 340px; flex: none; display: flex; flex-direction: column; background: var(--panel); border-left: 1px solid var(--line); }
+.chat[hidden] { display: none; }
+.chat-head { height: 40px; display: flex; align-items: center; padding: 0 12px; border-bottom: 1px solid var(--line); font-weight: 700; font-size: 13px; }
+.chat-body { position: relative; flex: 1; }
+.chat-body iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.chat-empty { padding: 16px; color: var(--muted); line-height: 1.7; font-size: 13px; }
+
+.toast { position: fixed; left: 50%; bottom: max(20px, env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); padding: 10px 16px; border-radius: 10px; background: var(--fg); color: #111; font-weight: 700; z-index: 10; }
+
+/* スマホ：一覧は上に重ねて開く */
+@media (max-width: 760px) {
+  .brand-sub, #copy-link, #clear-all { display: none; }
+  .side { position: fixed; z-index: 5; top: 52px; bottom: 0; left: 0; width: min(320px, 88vw); box-shadow: 8px 0 24px rgba(0, 0, 0, 0.5); }
+  .chat { position: fixed; z-index: 5; top: 52px; bottom: 0; right: 0; width: min(340px, 92vw); }
+  .stage { padding: 4px; }
+  .grid { inset: 4px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+/* タッチ端末はカーソルを置けないので、窓の操作を常に出す */
+@media (hover: none) {
+  .tile-bar { opacity: 1; pointer-events: auto; }
+  .tile-label { display: none; }
+}

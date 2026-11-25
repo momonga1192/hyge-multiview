@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ハイゲFINAL マルチビュー</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <button class="icon-btn" id="toggle-side" type="button" aria-expanded="true" aria-controls="side" title="出場者の一覧を開く・閉じる">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <h1 class="brand"><span class="brand-mark">HYG</span> FINAL <span class="brand-sub">マルチビュー</span></h1>
+    <div class="bar-tools">
+      <div class="seg" role="group" aria-label="並べ方">
+        <button type="button" class="seg-btn" data-layout="grid" aria-pressed="true">均等</button>
+        <button type="button" class="seg-btn" data-layout="focus" aria-pressed="false">メイン＋サブ</button>
+      </div>
+      <button type="button" class="tool-btn" id="toggle-chat" aria-pressed="false">チャット</button>
+      <button type="button" class="tool-btn" id="mute-all">全員ミュート</button>
+      <button type="button" class="tool-btn" id="copy-link">この並びのリンク</button>
+      <button type="button" class="tool-btn danger" id="clear-all">全部閉じる</button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="side" id="side" aria-label="出場者">
+      <div class="side-head">
+        <label class="search" for="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg>
+          <input id="search" type="search" placeholder="名前で探す" autocomplete="off">
+        </label>
+        <p class="side-count"><span id="count">0</span> 窓を表示中</p>
+      </div>
+      <div class="side-list" id="list"></div>
+      <form class="add" id="add-form">
+        <label for="add-input">URLで追加</label>
+        <div class="add-row">
+          <input id="add-input" type="text" placeholder="twitch.tv/〇〇 や YouTube の配信URL" autocomplete="off">
+          <button type="submit">追加</button>
+        </div>
+        <p class="add-msg" id="add-msg" role="status"></p>
+      </form>
+      <p class="side-note">個人が作った非公式のツールです。大会の運営とは関係ありません。本編は公式（mellow-fan の YouTube と加藤純一さんの Twitch）だけで配信されます。出場者が自分の配信をするかは人によります。配信していない人の窓は「オフライン」になります。</p>
+    </aside>
+
+    <main class="stage" id="stage">
+      <div class="empty" id="empty">
+        <p class="empty-title">見たい配信を左から選んでください</p>
+        <p class="empty-sub">本編の公式配信から始めるのがおすすめです。窓の上にカーソルを置くと、音声の切り替えやメインへの拡大ができます。</p>
+        <button type="button" class="tool-btn" id="quick-official">本編（DAY1）と加藤純一さんを開く</button>
+      </div>
+      <div class="grid" id="grid" data-layout="grid"></div>
+    </main>
+
+    <aside class="chat" id="chat" hidden aria-label="チャット">
+      <div class="chat-head"><span id="chat-title">チャット</span></div>
+      <div class="chat-body" id="chat-body"></div>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+
+  <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="streamers.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
