@@ -2,7 +2,7 @@
 import json, os, sys
 TEAMS = {
   "TEAM k4sen": ["k4sen", "布団ちゃん", "ふらんしすこ", "あゆたろう", "柊ツルギ", "ゆふな", "天月", "よしなま", "RaMu", "Foy", "ゆゆうた"],
-  "TEAM SHAKA": ["SHAKA", "rion", "SPYGEA", "赤見かるび", "ボドカ", "鈴木ノリアキ", "恭一郎", "伊織もえ", "らっしゃー", "こっちゃん@マイキー", "わいわい"],
+  "TEAM SHAKA": ["SHAKA", "rion", "SPYGEA", "赤見かるび", "ボドカ", "鈴木ノリアキ", "恭一郎", "伊織もえ", "らっしゃー", "ごっちゃん@マイキー", "わいわい"],
   "TEAM もこう": ["もこう", "Laz", "しんじ", "バトラ", "えなこ", "Biju", "らいじん", "yunocy", "幕末志士・坂本", "スタンミじゃぱん", "けんき"],
   "TEAM 関優太": ["関優太", "たいじ", "すもも", "Zerost", "みゃこ", "渋谷ハル", "あっさりしょこ", "misaco", "おにや", "こく兄", "Euriece"],
   "HYG REVENGERS": ["ありけん", "キズナアイ", "Killin9Hit", "こーすけ", "ta1yo", "蛇足", "まざー３", "Masuo", "YamatoN", "ラクシャーナ"],
@@ -13,6 +13,7 @@ OFFICIAL = [
   {"id": "official-day1", "name": "本編 DAY1（11/28 14:30〜）", "team": "公式配信", "youtubeVideo": "CCswyXGo4B0"},
   {"id": "official-ura", "name": "裏ハイパーゲーム大会（DAY1のあと）", "team": "公式配信", "youtubeVideo": "3kKJHfaH_Q4"},
   {"id": "official-day2", "name": "本編 DAY2（11/29 13:00〜）", "team": "公式配信", "youtubeVideo": "lqmKwbjkF1M"},
+  {"id": "official-channel", "name": "mellow-fan 公式チャンネル（いま配信中のもの）", "team": "公式配信", "youtubeId": "UCtV6XPQFY9LW8qI5kPr80Zg"},
   {"id": "kato", "name": "加藤純一（本編の同時配信）", "team": "公式配信", "twitch": "kato_junichi0817"},
 ]
 known = {}

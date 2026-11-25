@@ -1,0 +1,533 @@
+[
+ {
+  "name": "k4sen",
+  "team": "TEAM k4sen",
+  "twitch": "k4sen",
+  "youtubeId": "UChUjERVG8eKEAJSCef-tTmg",
+  "youtubeHandle": "@zzxk4sen",
+  "main": "twitch",
+  "source": "FollowBoard s-0096; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "布団ちゃん",
+  "team": "TEAM k4sen",
+  "twitch": "indegnasen0706",
+  "youtubeId": "UCP-YqbjD26y5lPrePpTBrTw",
+  "youtubeHandle": "@FutonchanCH",
+  "main": "twitch",
+  "source": "FollowBoard s-0092; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "ふらんしすこ",
+  "team": "TEAM k4sen",
+  "twitch": "franciscoow",
+  "youtubeId": "UC_VFb6Q52lbZJwTuE8Rb5AA",
+  "youtubeHandle": "@Francisco_T",
+  "main": "twitch",
+  "source": "FollowBoard s-0596; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "あゆたろう",
+  "team": "TEAM k4sen",
+  "twitch": "ayutarochan",
+  "youtubeId": "UCAtWRD0PDkNnbzpSr_SMEUw",
+  "youtubeHandle": "@ayutaroch",
+  "main": "twitch",
+  "source": "FollowBoard s-0342; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "柊ツルギ",
+  "team": "TEAM k4sen",
+  "twitch": "hiiragitsurugi",
+  "youtubeId": "UCWnQDjlXTLDyYowc3LaHyJQ",
+  "youtubeHandle": "@HiiragiTsurugi",
+  "main": "twitch",
+  "source": "FollowBoard s-0056; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "ゆふな",
+  "team": "TEAM k4sen",
+  "twitch": "yufuna",
+  "youtubeId": "UCjSeZKF4cMVCsuI9Yk92txg",
+  "youtubeHandle": "@YufuNachannel",
+  "main": "twitch",
+  "source": "FollowBoard s-0318; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認; YT: FBのURL(@yufuna)は別人チャンネルに解決されたため、FB記載ID UCjSeZKF4cMVCsuI9Yk92txg を採用（Twitchプロフィールの c/YufuNachannel とも一致）"
+ },
+ {
+  "name": "天月",
+  "team": "TEAM k4sen",
+  "twitch": "cr_amatsuki",
+  "youtubeId": "UCY_10f4ef0e1T2skAbHBQTg",
+  "youtubeHandle": "@amatsuki_YHch",
+  "main": "twitch",
+  "source": "FollowBoard s-0607; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "よしなま",
+  "team": "TEAM k4sen",
+  "twitch": "yoshinama222",
+  "youtubeId": "UCEnkd5D-53MDGpgpiQRbUqw",
+  "youtubeHandle": "@yoshinama0130",
+  "main": "twitch",
+  "source": "FollowBoard s-0118; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "RaMu",
+  "team": "TEAM k4sen",
+  "twitch": "ramuzuqun",
+  "youtubeId": "UCEdiMA-7EUoUzQAXAJDRZUg",
+  "youtubeHandle": "@ramuzuqun",
+  "main": "twitch",
+  "source": "FollowBoard s-1821; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "Foy",
+  "team": "TEAM k4sen",
+  "twitch": "foy_honmono",
+  "youtubeId": "UCDqryKBRB_kh9XJs_uJ_Mtw",
+  "youtubeHandle": "@foy_honmono",
+  "main": "twitch",
+  "source": "FollowBoard s-1578; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "ゆゆうた",
+  "team": "TEAM k4sen",
+  "twitch": "yuyuta0702",
+  "youtubeId": "UCNMG8dXjgqxS94dHljP9duQ",
+  "youtubeHandle": "@yuyutadesu",
+  "main": "twitch",
+  "source": "FollowBoard s-0100; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "SHAKA",
+  "team": "TEAM SHAKA",
+  "twitch": "fps_shaka",
+  "youtubeId": "UCjg5-lUiUzdmzzBRY9Xqrhw",
+  "youtubeHandle": "@SHAKAch",
+  "main": "twitch",
+  "source": "FollowBoard s-0094; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認; YT SHAKAchはTwitchプロフィールのリンクと一致。ただし登録者5,590人・ライブ1年前"
+ },
+ {
+  "name": "rion",
+  "team": "TEAM SHAKA",
+  "twitch": "cr_rion",
+  "youtubeId": "UCt5-xco6k1xV88hmaYlIAhw",
+  "youtubeHandle": "@rioncr",
+  "main": "twitch",
+  "source": "FollowBoard s-0198; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "SPYGEA",
+  "team": "TEAM SHAKA",
+  "twitch": "spygea",
+  "youtubeId": "UCBnFEiB9v4afsg8tbhmIACQ",
+  "youtubeHandle": "@spygea",
+  "main": "twitch",
+  "source": "FollowBoard s-0115; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認; YT /streamsも直近配信あり（同時配信の可能性）。Twitchフォロワー66万でtwitchに"
+ },
+ {
+  "name": "赤見かるび",
+  "team": "TEAM SHAKA",
+  "twitch": "akamikarubi",
+  "youtubeId": "UCWV9E1l5YItrPEAWHoNmieQ",
+  "youtubeHandle": "@AkamiKarubi",
+  "main": "twitch",
+  "source": "FollowBoard s-0051; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "ボドカ",
+  "team": "TEAM SHAKA",
+  "twitch": "vodkavdk",
+  "youtubeId": "UCIYaPLvP0y2LbSYk7QbRSmQ",
+  "youtubeHandle": "@vodkachaso",
+  "main": "twitch",
+  "source": "FollowBoard s-0120; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認; YouTubeのライブは「Twitchと同時配信中」表記。主はTwitch"
+ },
+ {
+  "name": "鈴木ノリアキ",
+  "team": "TEAM SHAKA",
+  "twitch": "suzukinoriaki",
+  "youtubeId": "UC5z1TSPQsDeAWiA8AksvK3A",
+  "youtubeHandle": "@NORIAKIISGOOD",
+  "main": "twitch",
+  "source": "FollowBoard s-0308; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認; YT(@NORIAKIISGOOD)はFB掲載のみでTwitch側リンクなし。登録者2,440人・ライブ5年前でサブの可能性"
+ },
+ {
+  "name": "恭一郎",
+  "team": "TEAM SHAKA",
+  "twitch": "dmf_kyochan",
+  "youtubeId": "UClX3YSREJp3ELuv2wFAYOzA",
+  "youtubeHandle": "@kyouchan3d",
+  "main": "twitch",
+  "source": "FollowBoard s-0110; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "伊織もえ",
+  "team": "TEAM SHAKA",
+  "twitch": "moe_iori",
+  "youtubeId": "UCl3O3DIsE2phhmzlEihYehg",
+  "youtubeHandle": "@iorimoe",
+  "main": "twitch",
+  "source": "FollowBoard s-1417; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "らっしゃー",
+  "team": "TEAM SHAKA",
+  "twitch": "rassya12",
+  "youtubeId": "UC22TmT0agtdxRc8HN8xURXQ",
+  "youtubeHandle": "@rassyach",
+  "main": "twitch",
+  "source": "FollowBoard s-0345; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "ごっちゃん@マイキー",
+  "team": "TEAM SHAKA",
+  "twitch": "gocchanmikey",
+  "youtubeId": "UCgFKdFutAhwsWSoeZ6zXJrg",
+  "youtubeHandle": "@マイキーごっちゃん",
+  "main": "twitch",
+  "source": "FollowBoard s-0114; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "わいわい",
+  "team": "TEAM SHAKA",
+  "twitch": "crazyraccoonyy",
+  "youtubeId": "UCSkLRGGIGKOtinamhcy_42g",
+  "youtubeHandle": "@YYchannel-n4s",
+  "main": "twitch",
+  "source": "FollowBoard s-0605; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "もこう",
+  "team": "TEAM もこう",
+  "twitch": "mokouliszt1",
+  "youtubeId": "UCZFxcWJS1_iVIFETARRRHZQ",
+  "youtubeHandle": "@mokouliszt",
+  "main": "youtube",
+  "source": "FollowBoard s-0248; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認; YT: FB上の主は@mokoustreamだが、/streamsで直近ライブが続くのは@mokouliszt（とある漢のチャンネルもこう）なので採用。Twitch最終は11/16"
+ },
+ {
+  "name": "Laz",
+  "team": "TEAM もこう",
+  "twitch": "lazvell",
+  "youtubeId": "UCqf8Mlsu9tsWigALK2gT-1g",
+  "youtubeHandle": "@Lazvell",
+  "main": "twitch",
+  "source": "FollowBoard s-0099; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "しんじ",
+  "team": "TEAM もこう",
+  "twitch": "shinjifromjapanxd",
+  "youtubeId": "UCo9ioj4sW3BmxSDizpdT6Gw",
+  "youtubeHandle": "@しんじさん",
+  "main": "twitch",
+  "source": "FollowBoard s-0102; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "バトラ",
+  "team": "TEAM もこう",
+  "twitch": "batora324",
+  "youtubeId": "UC67WMeSJs-HwKb-pCN6Z63Q",
+  "youtubeHandle": "@batoradayo",
+  "main": "twitch",
+  "source": "FollowBoard s-0098; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "えなこ",
+  "team": "TEAM もこう",
+  "twitch": "enako_chan",
+  "youtubeId": "UCrUdiKv9LERZmG_MKh63Xgg",
+  "youtubeHandle": "@enako_channel",
+  "main": "twitch",
+  "source": "FollowBoard s-2273; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認; YTライブは1か月前、Twitchは11/23"
+ },
+ {
+  "name": "Biju",
+  "team": "TEAM もこう",
+  "twitch": "bijusan",
+  "youtubeId": "UCelyu3V0ml45H3Ulm8RaaDw",
+  "youtubeHandle": "@Biju_valo",
+  "main": "twitch",
+  "source": "FollowBoard s-0106; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "らいじん",
+  "team": "TEAM もこう",
+  "twitch": "alfrea",
+  "youtubeId": "UCvXYV_0wzcxMnH_J4HCZxBw",
+  "youtubeHandle": "@raizinLOL",
+  "main": "twitch",
+  "source": "FollowBoard s-0107; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "yunocy",
+  "team": "TEAM もこう",
+  "twitch": "yunocy",
+  "youtubeId": "UC4Aqh8CdHbUOiDTbmhr5N-Q",
+  "youtubeHandle": "@チャンネルゆのしー",
+  "main": "twitch",
+  "source": "FollowBoard s-0242; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "幕末志士・坂本",
+  "team": "TEAM もこう",
+  "twitch": "bakumatsu_shishi",
+  "youtubeId": "UC0C6oq3TlGiSlDCei57hY6A",
+  "youtubeHandle": "@幕末志士チャンネル",
+  "main": "youtube",
+  "source": "FollowBoard s-0122; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認; Twitch・YouTube両方で直近配信あり（FB直近配信もTW2/YT2）。登録者の多いYouTubeをmainにしたが要確認"
+ },
+ {
+  "name": "スタンミじゃぱん",
+  "team": "TEAM もこう",
+  "twitch": "sutanmi",
+  "youtubeId": "UCcGSTI830YkwaocFV31Q7MA",
+  "youtubeHandle": "@nicosutanmi",
+  "main": "twitch",
+  "source": "FollowBoard s-0151; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "けんき",
+  "team": "TEAM もこう",
+  "twitch": "kenki521",
+  "youtubeId": "UCNicQVuAQJYlCQKEw1TKn1A",
+  "youtubeHandle": "@Kenki521",
+  "main": "twitch",
+  "source": "FollowBoard s-0116; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "関優太",
+  "team": "TEAM 関優太",
+  "twitch": "stylishnoob4",
+  "youtubeId": "UC2j4lymo8Ce_1RXMeo4afcQ",
+  "youtubeHandle": "@StylishNoob4",
+  "main": "twitch",
+  "source": "FollowBoard s-0091; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "たいじ",
+  "team": "TEAM 関優太",
+  "twitch": "yaritaiji",
+  "youtubeId": "UCTrckUWmmrRZcNrfu1mZDOg",
+  "youtubeHandle": "@Yaritaiji",
+  "main": "twitch",
+  "source": "FollowBoard s-0095; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "すもも",
+  "team": "TEAM 関優太",
+  "twitch": "sumomo_x",
+  "youtubeId": "UC38hCsF3st1pBJBw8JnAu2g",
+  "youtubeHandle": "@sumomox1",
+  "main": "twitch",
+  "source": "FollowBoard s-0139; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "Zerost",
+  "team": "TEAM 関優太",
+  "twitch": "zerost_s",
+  "youtubeId": "UCBtAasNQYblmWPx1R77tcEA",
+  "youtubeHandle": "@Zerost",
+  "main": "twitch",
+  "source": "FollowBoard s-0103; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "みゃこ",
+  "team": "TEAM 関優太",
+  "twitch": "myakkomyako",
+  "youtubeId": "UCexnpU3jHQFC2RY3i4ODGVQ",
+  "youtubeHandle": "@myakkomyako",
+  "main": "twitch",
+  "source": "FollowBoard s-1400; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "渋谷ハル",
+  "team": "TEAM 関優太",
+  "twitch": "shibuyahal",
+  "youtubeId": "UChLfthKoUV502J7gU9STArg",
+  "youtubeHandle": "@ShibuyaHAL",
+  "main": "youtube",
+  "source": "FollowBoard s-0062; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認; Twitch最終配信2024-12。YouTube /streamsで毎日ライブ"
+ },
+ {
+  "name": "あっさりしょこ",
+  "team": "TEAM 関優太",
+  "twitch": "assarisyoko1",
+  "youtubeId": "UCz0aC9z3kXruRHULDqFRuVA",
+  "youtubeHandle": "@Assarisyoko",
+  "main": "youtube",
+  "source": "FollowBoard s-0127; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認; YT /streamsで毎日ライブ。FB直近配信YT2/TW1"
+ },
+ {
+  "name": "misaco",
+  "team": "TEAM 関優太",
+  "twitch": "misacorin",
+  "youtubeId": "UCmrKgjpQvD5wY8_wP2NM_rg",
+  "youtubeHandle": "@misaco_channel",
+  "main": "twitch",
+  "source": "FollowBoard s-1820; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認; FB掲載YTは「misacoのサブ」(UCPIK9GJ865h6CorqupEq3xA)。「misaco ch.」はYouTube検索で発見、概要欄の twitch.tv/misacorin と X @oOsuyaaaOo で本人確認"
+ },
+ {
+  "name": "おにや",
+  "team": "TEAM 関優太",
+  "twitch": "oniyadayo",
+  "youtubeId": "UCC0FNUII8Zp2OAc7IaetICg",
+  "youtubeHandle": "@tensaioniya",
+  "main": "youtube",
+  "source": "FollowBoard s-0112; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認; YT: FB主は@o228だが、/streamsで直近ライブ(2時間前)があるのは@tensaioniya（天才おにや）なので採用。o228の最終ライブは4か月前"
+ },
+ {
+  "name": "こく兄",
+  "team": "TEAM 関優太",
+  "twitch": "kokujintv",
+  "youtubeId": "UCcO-FDMK_mPWEnoxyNDwvNw",
+  "youtubeHandle": "@kokujintv",
+  "main": "twitch",
+  "source": "FollowBoard s-0131; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "Euriece",
+  "team": "TEAM 関優太",
+  "twitch": "euriece",
+  "youtubeId": "UCURL9cZ7qoSBfm4TW5GHDjw",
+  "youtubeHandle": "@Euriece",
+  "main": "twitch",
+  "source": "FollowBoard s-0142; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "ありけん",
+  "team": "HYG REVENGERS",
+  "twitch": "arikendebu",
+  "youtubeId": "UC3NHhO0wBaZ5OVxaabcDKrw",
+  "youtubeHandle": "@arikenDB",
+  "main": "twitch",
+  "source": "FollowBoard s-0635; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "キズナアイ",
+  "team": "HYG REVENGERS",
+  "twitch": "aichan_nel",
+  "youtubeId": "UC4YaOt1yT-ZeyB0OmxHgolA",
+  "youtubeHandle": "@AIChannel",
+  "main": "youtube",
+  "source": "FollowBoard s-0712; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認; Twitch aichan_nelはTwitch検索で発見、TwitchのリンクがYT UC4YaOt1yT-ZeyB0OmxHgolA を指す。Twitch最終配信2022-02"
+ },
+ {
+  "name": "Killin9Hit",
+  "team": "HYG REVENGERS",
+  "twitch": "killin9hit",
+  "youtubeId": "UCMEI4RcffOJZUuYIVcim8Zw",
+  "youtubeHandle": "@Killin9Hit",
+  "main": "twitch",
+  "source": "FollowBoard s-0218; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "こーすけ",
+  "team": "HYG REVENGERS",
+  "twitch": "kosuke_saiore",
+  "youtubeId": "UCvgmJs0D_D15h1Qz36vWNmQ",
+  "youtubeHandle": "@kosukesaiore",
+  "main": "twitch",
+  "source": "FollowBoard s-0674; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認; FB直近配信TW2/YT1。Twitch最終11/17、YTライブ11日前でどちらも頻度低め"
+ },
+ {
+  "name": "ta1yo",
+  "team": "HYG REVENGERS",
+  "twitch": "ta1yo_tv",
+  "youtubeId": "UC8jr3VTOgwtvu-2Pq373k3g",
+  "youtubeHandle": "@ta1yotv",
+  "main": "youtube",
+  "source": "FollowBoard s-0113; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認; Twitch・YouTube両方で直近配信あり。FB直近配信YT2/TW1、YT /streamsも毎日"
+ },
+ {
+  "name": "蛇足",
+  "team": "HYG REVENGERS",
+  "twitch": "dasoku_aniki",
+  "youtubeId": "UCdaR5dKsHWu8mQtznhDj7uw",
+  "youtubeHandle": "@dasoku25",
+  "main": "twitch",
+  "source": "FollowBoard s-0188; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "まざー３",
+  "team": "HYG REVENGERS",
+  "twitch": "mother3rd",
+  "youtubeId": "UCXEW13qpntV7pacu0Kz-9yA",
+  "youtubeHandle": "@MOTHER3rd",
+  "main": "twitch",
+  "source": "FollowBoard s-0153; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "Masuo",
+  "team": "HYG REVENGERS",
+  "twitch": "darkmasuotv",
+  "youtubeId": "UCCUd6vfPvpPHBWZ6XwXAlRQ",
+  "youtubeHandle": "@MasuoTV",
+  "main": "youtube",
+  "source": "FollowBoard s-0163; Twitch GQLで存在・最終配信確認; TwitchプロフィールのYTリンクと一致; YTページのexternalId/canonicalで確認; Twitch・YouTube両方。FB直近配信YT2/TW1、YT /streamsが毎日"
+ },
+ {
+  "name": "YamatoN",
+  "team": "HYG REVENGERS",
+  "twitch": "yamatonjp",
+  "youtubeId": "UCDDj3CtmsImuRmtiMPBzZgg",
+  "youtubeHandle": "@YamatoNjp",
+  "main": "twitch",
+  "source": "FollowBoard s-0196; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認; YouTubeでも配信（調査時点でYTライブ中）。FB直近配信TW3/YT2でtwitchに"
+ },
+ {
+  "name": "ラクシャーナ",
+  "team": "HYG REVENGERS",
+  "twitch": "rakshaana",
+  "youtubeId": "UCc7uWNuJOXzzDT-ZV7Gf1dg",
+  "youtubeHandle": "@rc_ラクシャーナ",
+  "main": "youtube",
+  "source": "FollowBoard s-0594; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認; Twitch rakshaanaはTwitch検索で発見、プロフィール文がYTチャンネル概要と同一で本人と判断。Twitch最終配信2026-05"
+ },
+ {
+  "name": "加藤純一",
+  "team": "MC・実況",
+  "twitch": "kato_junichi0817",
+  "youtubeId": "UCx1nAvtVDIsaGmCMSe8ofsQ",
+  "youtubeHandle": "@junchannel",
+  "main": "twitch",
+  "source": "FollowBoard s-0090; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認"
+ },
+ {
+  "name": "OooDa",
+  "team": "MC・実況",
+  "twitch": "oooda",
+  "youtubeId": "UChiEaapLE92m5sCV7oGG6IA",
+  "youtubeHandle": "@OooDa0328",
+  "main": null,
+  "source": "FollowBoard s-2274; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認; Twitch最終配信2024-09、YouTubeの最終ライブも約1年前。メインを確かめられず main=null"
+ },
+ {
+  "name": "岸大河",
+  "team": "MC・実況",
+  "twitch": "stansmith_jp",
+  "youtubeId": "UC9z_nTAgyX2Opz3uRwN056g",
+  "youtubeHandle": "@StanSmithfps",
+  "main": "twitch",
+  "source": "FollowBoard s-1401; Twitch GQLで存在・最終配信確認; YTページのexternalId/canonicalで確認; YTはFBに掲載なし。YouTube検索で「岸 大河 / Taiga Kishi」(概要欄「ゲームキャスターとしての活動とは別に…」)を発見。ライブは9年前が最後で実質Twitchのみ"
+ },
+ {
+  "name": "平岩康佑",
+  "team": "MC・実況",
+  "twitch": null,
+  "youtubeId": "UCWRv0opKmUbsNmcjwRtfC0w",
+  "youtubeHandle": "@hiraiwa_cast",
+  "main": "youtube",
+  "source": "FollowBoard s-2621; YTページのexternalId/canonicalで確認; Twitchの掲載なし、Twitch検索でも見つからず"
+ },
+ {
+  "name": "石田晴香",
+  "team": "MC・実況",
+  "twitch": null,
+  "youtubeId": null,
+  "youtubeHandle": null,
+  "main": null,
+  "source": "FollowBoard s-2275 にチャンネル掲載なし。Twitch検索で該当なし、YouTube検索の「石田晴香」名義チャンネル(登録者数百人以下)は本人と確認できず"
+ }
+]
