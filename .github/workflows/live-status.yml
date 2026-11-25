@@ -1,0 +1,40 @@
+name: 配信状況の更新
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # 5分ごと（GitHub の混み具合で数分〜十数分遅れることがある）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: live-status
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 大会の期間外なら何もしない
+        id: window
+        run: |
+          today=$(TZ=Asia/Tokyo date +%Y%m%d)
+          if [ "$today" -gt 20261130 ]; then echo "run=false" >> "$GITHUB_OUTPUT"; else echo "run=true" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.window.outputs.run == 'true'
+      - name: 配信状況を調べる
+        if: steps.window.outputs.run == 'true'
+        run: python3 tools/check_live.py > /tmp/live.json && head -c 400 /tmp/live.json
+      - name: status ブランチに置く（履歴は残さず1コミットだけ）
+        if: steps.window.outputs.run == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p /tmp/out && cp /tmp/live.json /tmp/out/live.json && cd /tmp/out
+          git init -q -b status
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add live.json && git commit -qm "配信状況を更新"
+          git push -qf "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" status

@@ -119,6 +119,10 @@
       t.player = new window.Twitch.Player(div.id, {channel: id, parent: [HOST], width: '100%', height: '100%', muted: true, autoplay: true});
       t.kind = 'tw';
       t.player.addEventListener(window.Twitch.Player.READY, () => { t.ready = true; applyAudio(); });
+      // Twitch は窓が小さくなったときや再生し直したときに自分でミュートすることがあるので、再生が始まるたびに音声の選択をかけ直す
+      for (const ev of ['PLAY', 'PLAYING', 'ONLINE']) {
+        if (window.Twitch.Player[ev]) t.player.addEventListener(window.Twitch.Player[ev], () => { if (key === state.audio) setMuted(t, false); });
+      }
     } else {
       if (!ytReady) { pending.push(key); return; }
       const base = p === 'yt' ? `https://www.youtube.com/embed/${id}` : 'https://www.youtube.com/embed/live_stream';
@@ -127,7 +131,10 @@
       const frame = el('iframe', {src: `${base}?${q}`, allow: 'autoplay; encrypted-media; picture-in-picture; fullscreen', allowfullscreen: true, referrerpolicy: 'strict-origin-when-cross-origin', title: labelOf(key)});
       holder.replaceChildren(frame);
       t.kind = 'yt';
-      t.player = new window.YT.Player(frame, {events: {onReady: (e) => { t.ready = true; try { e.target.playVideo(); } catch (err) { /* 自動再生できない端末もある */ } applyAudio(); }}});
+      t.player = new window.YT.Player(frame, {events: {
+        onReady: (e) => { t.ready = true; try { e.target.playVideo(); } catch (err) { /* 自動再生できない端末もある */ } applyAudio(); },
+        onStateChange: (e) => { if (e.data === 1 && key === state.audio) setMuted(t, false); },
+      }});
     }
   }
   function setMuted(t, muted) {
@@ -136,6 +143,15 @@
       if (t.kind === 'tw') { t.player.setMuted(muted); if (!muted) t.player.setVolume(1); }
       else if (muted) t.player.mute(); else { t.player.unMute(); t.player.setVolume(100); }
     } catch (e) { /* 読み込み途中は無視 */ }
+  }
+  // 並びが変わった直後は、プレイヤーが大きさの変化に合わせて音を切ることがあるので、少し待ってからもかけ直す
+  let reapplyTimers = [];
+  function reapplyAudioSoon() {
+    reapplyTimers.forEach(clearTimeout);
+    reapplyTimers = [400, 1500, 4000].map((ms) => setTimeout(() => {
+      const t = live.get(state.audio);
+      if (t) setMuted(t, false);
+    }, ms));
   }
   function applyAudio() {
     for (const [key, t] of live) {
@@ -159,11 +175,12 @@
         el('div', {class: 'tile-actions'},
           el('button', {type: 'button', class: 'tile-btn', 'data-act': 'audio', 'aria-pressed': 'false', title: 'この窓の音を出す（ほかはミュート）', onclick: () => { state.audio = state.audio === key ? null : key; applyAudio(); renderChat(); }}, '音声'),
           others.length ? el('button', {type: 'button', class: 'tile-btn', title: `${platformName(others[0])} に切り替える`, onclick: () => swapTile(key, others[0])}, others[0].startsWith('tw:') ? 'Twitch' : 'YouTube') : null,
-          el('button', {type: 'button', class: 'tile-btn', title: 'メインで大きく見る', onclick: () => { state.layout = 'focus'; state.focus = key; save(); syncLayoutButtons(); layout(); }}, '拡大'),
+          el('button', {type: 'button', class: 'tile-btn main-btn', 'data-act': 'main', title: 'この窓をメインにして大きく見る', onclick: () => makeMain(key)}, 'メインにする'),
           el('button', {type: 'button', class: 'tile-btn', title: 'この窓を閉じる', 'aria-label': `${labelOf(key)} を閉じる`, onclick: () => removeTile(key)}, '✕'),
         ),
       ),
       el('span', {class: 'tile-label'}, labelOf(key)),
+      el('button', {type: 'button', class: 'tile-promote', title: 'この窓をメインにする', onclick: () => makeMain(key)}, 'メインにする'),
     );
     return node;
   }
@@ -261,11 +278,23 @@
     } else {
       pos = placeGrid(keys, 0, 0, W, H);
     }
+    const mainKey = state.layout === 'focus' && keys.length > 1 ? (keys.includes(state.focus) ? state.focus : keys[0]) : null;
     for (const [key, t] of live) {
       const p = pos.get(key);
       if (!p) continue;
       Object.assign(t.node.style, {left: `${p.x}px`, top: `${p.y}px`, width: `${p.w}px`, height: `${p.h}px`});
+      t.node.classList.toggle('is-main', key === mainKey);
+      t.node.classList.toggle('is-sub', !!mainKey && key !== mainKey);
+      const b = t.node.querySelector('[data-act="main"]');
+      if (b) b.hidden = key === mainKey;
     }
+    reapplyAudioSoon();
+    renderMainMarks(mainKey);
+  }
+  function makeMain(key) {
+    state.layout = 'focus';
+    state.focus = key;
+    save(); syncLayoutButtons(); layout();
   }
   function syncLayoutButtons() {
     document.querySelectorAll('.seg-btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.layout === state.layout)));
@@ -288,16 +317,59 @@
     $('#chat-title').textContent = `${labelOf(key)} のチャット`;
     if (p === 'tw') body.replaceChildren(el('iframe', {src: `https://www.twitch.tv/embed/${id}/chat?parent=${HOST}&darkpopout`, title: `${labelOf(key)} のチャット`}));
     else if (p === 'yt') body.replaceChildren(el('iframe', {src: `https://www.youtube.com/live_chat?v=${id}&embed_domain=${HOST}`, title: `${labelOf(key)} のチャット`}));
-    else body.replaceChildren(el('p', {class: 'chat-empty'}, 'YouTube のチャンネル指定の窓は、チャットを出せません。配信のURLで追加すると出せます。'));
+    else if (liveVideos[key]) body.replaceChildren(el('iframe', {src: `https://www.youtube.com/live_chat?v=${liveVideos[key]}&embed_domain=${HOST}`, title: `${labelOf(key)} のチャット`}));
+    else body.replaceChildren(el('p', {class: 'chat-empty'}, 'この YouTube の窓は、配信中と確認できたときにチャットを出せます。'));
     layout();
   }
 
+  /* ---------- 配信状況（GitHub Actions が5分ごとに書く live.json） ---------- */
+  const LIVE_URL = 'https://raw.githubusercontent.com/momonga1192/hyge-multiview/status/live.json';
+  let liveSet = new Set();
+  let liveVideos = {};
+  let liveAt = null;
+  const isLive = (s) => keysOf(s).some((k) => liveSet.has(k));
+  async function refreshLive() {
+    try {
+      const r = await fetch(`${LIVE_URL}?t=${Math.floor(Date.now() / 60000)}`, {cache: 'no-store'});
+      if (!r.ok) throw new Error(String(r.status));
+      const j = await r.json();
+      liveSet = new Set(j.live || []);
+      liveVideos = j.videos || {};
+      liveAt = j.updatedAt ? new Date(j.updatedAt) : null;
+    } catch (e) {
+      liveAt = liveAt || null;
+    }
+    renderLiveStatus();
+    renderList();
+  }
+  function renderLiveStatus() {
+    const p = $('#live-status');
+    if (!p) return;
+    if (!liveAt) { p.textContent = '配信状況を読み込めていません'; return; }
+    const hm = liveAt.toLocaleTimeString('ja-JP', {hour: '2-digit', minute: '2-digit'});
+    const n = STREAMERS.filter(isLive).length;
+    const old = Date.now() - liveAt.getTime() > 20 * 60000;
+    p.textContent = `配信中 ${n}人（${hm} 時点${old ? '・更新が遅れています' : ''}）`;
+  }
+
   /* ---------- 一覧 ---------- */
+  function renderMainMarks(mainKey) {
+    document.querySelectorAll('.member-row').forEach((row) => {
+      const keys = row.dataset.keys ? row.dataset.keys.split(' ') : [];
+      const open = keys.find((k) => state.tiles.includes(k));
+      const btn = row.querySelector('.row-main');
+      const tag = row.querySelector('.row-main-tag');
+      if (btn) btn.hidden = !open || state.tiles.length < 2 || open === mainKey;
+      if (tag) tag.hidden = !open || open !== mainKey;
+    });
+  }
   function renderList() {
     const q = $('#search').value.trim().toLowerCase();
+    const onlyLive = $('#only-live').getAttribute('aria-pressed') === 'true';
     const groups = new Map(TEAM_ORDER.map((t) => [t, []]));
     for (const s of STREAMERS) {
       if (q && !s.name.toLowerCase().includes(q) && !(s.kana || '').includes(q)) continue;
+      if (onlyLive && !isLive(s)) continue;
       if (!groups.has(s.team)) groups.set(s.team, []);
       groups.get(s.team).push(s);
     }
@@ -316,20 +388,38 @@
         if (s.twitch) badges.push(el('span', {class: 'badge badge-tw'}, 'Tw'));
         if (s.youtubeId || s.youtubeVideo) badges.push(el('span', {class: 'badge badge-yt'}, 'YT'));
         if (!keys.length) badges.push(el('span', {class: 'badge badge-none'}, '未確認'));
-        return el('button', {type: 'button', class: 'member', 'aria-pressed': String(on), disabled: !keys.length,
+        const liveNow = isLive(s);
+        const openKey = keys.find((k) => state.tiles.includes(k));
+        const member = el('button', {type: 'button', class: 'member', 'aria-pressed': String(on), disabled: !keys.length,
           title: keys.length ? `${s.name} の配信を${on ? '閉じる' : '開く'}` : 'チャンネルを確認できていません',
           onclick: () => {
             const openKeys = keys.filter((k) => state.tiles.includes(k));
-            if (openKeys.length) { for (const k of openKeys) state.tiles = state.tiles.filter((x) => x !== k); if (openKeys.includes(state.audio)) state.audio = null; afterChange(); }
-            else addTile(defaultKey(s));
+            if (openKeys.length) {
+              for (const k of openKeys) state.tiles = state.tiles.filter((x) => x !== k);
+              if (openKeys.includes(state.audio)) state.audio = null;
+              if (openKeys.includes(state.focus)) state.focus = null;
+              afterChange();
+            } else {
+              // 配信中の側があればそちらを開く
+              addTile(keys.find((k) => liveSet.has(k)) || defaultKey(s));
+            }
           }},
         el('span', {class: 'check', 'aria-hidden': 'true'}),
-        el('span', {class: 'member-name'}, s.name, s.role ? el('span', {class: 'member-role'}, ` ${s.role}`) : null),
+        el('span', {class: 'member-name'},
+          liveNow ? el('span', {class: 'live-dot', title: '配信中', 'aria-label': '配信中'}) : null,
+          s.name, s.role ? el('span', {class: 'member-role'}, ` ${s.role}`) : null),
         ...badges);
+        return el('div', {class: `member-row${liveNow ? ' is-live' : ''}`, 'data-keys': keys.join(' ')},
+          member,
+          el('span', {class: 'row-main-tag', hidden: true}, 'メイン'),
+          el('button', {type: 'button', class: 'row-main', hidden: true, title: `${s.name} をメインにする`, onclick: () => { const k = keys.find((x) => state.tiles.includes(x)); if (k) makeMain(k); }}, 'メインに'));
       });
       frag.append(el('section', {class: 'team', style: {'--team': color}}, head, ...items));
     }
+    if (!frag.childNodes.length) frag.append(el('p', {class: 'list-empty'}, onlyLive ? 'いま配信中の人はいません（5分ごとに確かめています）' : '見つかりませんでした'));
     list.replaceChildren(frag);
+    const keys = state.tiles;
+    renderMainMarks(state.layout === 'focus' && keys.length > 1 ? (keys.includes(state.focus) ? state.focus : keys[0]) : null);
   }
 
   /* ---------- その他の操作 ---------- */
@@ -364,6 +454,11 @@
     syncLayoutButtons(); afterChange();
   });
   $('#search').addEventListener('input', renderList);
+  $('#only-live').addEventListener('click', () => {
+    const b = $('#only-live');
+    b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true'));
+    renderList();
+  });
   $('#add-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const r = parseInput($('#add-input').value);
@@ -383,4 +478,8 @@
   syncLayoutButtons();
   renderList();
   sync();
+  refreshLive();
+  setInterval(refreshLive, 60000);
+  // チャットの窓（YouTube の動画ID）は配信状況が来てから決まることがある
+  setInterval(() => { if (state.chat && chatKey && chatKey.startsWith('ytc:') && liveVideos[chatKey]) { chatKey = null; renderChat(); } }, 60000);
 })();

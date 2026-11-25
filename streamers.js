@@ -495,10 +495,5 @@ window.STREAMERS = [
   "team": "MC・実況",
   "youtubeId": "UCWRv0opKmUbsNmcjwRtfC0w",
   "main": "youtube"
- },
- {
-  "id": "p59",
-  "name": "石田晴香",
-  "team": "MC・実況"
  }
 ];

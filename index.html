@@ -33,7 +33,11 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg>
           <input id="search" type="search" placeholder="名前で探す" autocomplete="off">
         </label>
-        <p class="side-count"><span id="count">0</span> 窓を表示中</p>
+        <div class="side-meta">
+          <p class="side-count"><span id="count">0</span> 窓を表示中</p>
+          <button type="button" class="live-filter" id="only-live" aria-pressed="false"><span class="live-dot" aria-hidden="true"></span>配信中だけ</button>
+        </div>
+        <p class="live-status" id="live-status">配信状況を読み込み中…</p>
       </div>
       <div class="side-list" id="list"></div>
       <form class="add" id="add-form">

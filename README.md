@@ -5,6 +5,7 @@
 - 公開先：https://momonga1192.github.io/hyge-multiview/
 - 中身：静的なHTML/CSS/JS（`index.html` `style.css` `app.js` `streamers.js`）。ビルド不要
 - 出場者とチャンネルの一覧は `streamers.js`。`tools/build_streamers.py` で作り直せる
+- 左の一覧の赤い丸は配信中の印。GitHub Actions（.github/workflows/live-status.yml）が5分ごとに Twitch・YouTube のページを見て、status ブランチの live.json に書く。2026/11/30 を過ぎると何もしなくなる
 - Twitch の埋め込みは https のページでしか映らない（`frame-ancestors https://<親ドメイン>`）。ローカルの http では YouTube だけ映る
 
 ## 使い方

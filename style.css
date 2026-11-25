@@ -134,3 +134,28 @@ svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width:
   .tile-bar { opacity: 1; pointer-events: auto; }
   .tile-label { display: none; }
 }
+
+/* 配信中の印 */
+.side-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #ff3b3b; box-shadow: 0 0 0 3px rgba(255, 59, 59, 0.22); margin-right: 7px; vertical-align: 1px; flex: none; }
+@media (prefers-reduced-motion: no-preference) { .member-row .live-dot { animation: live-pulse 1.6s ease-in-out infinite; } }
+@keyframes live-pulse { 50% { box-shadow: 0 0 0 5px rgba(255, 59, 59, 0.05); } }
+.live-filter { display: inline-flex; align-items: center; height: 28px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); color: var(--muted); font-size: 12px; cursor: pointer; }
+.live-filter[aria-pressed="true"] { border-color: #ff3b3b; color: var(--fg); background: rgba(255, 59, 59, 0.14); }
+.live-status { margin: 0; font-size: 11px; color: var(--muted); }
+.member-row { display: flex; align-items: center; gap: 4px; }
+.member-row .member { flex: 1; min-width: 0; }
+.member-row.is-live .member-name { color: var(--fg); font-weight: 700; }
+.row-main { flex: none; height: 26px; padding: 0 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel-2); font-size: 11px; cursor: pointer; white-space: nowrap; }
+.row-main:hover { border-color: var(--accent); color: var(--accent); }
+.row-main-tag { flex: none; padding: 3px 7px; border-radius: 6px; background: var(--accent); color: #111; font-size: 11px; font-weight: 700; }
+.row-main[hidden], .row-main-tag[hidden] { display: none; }
+.list-empty { margin: 16px 8px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+/* サブの窓の「メインにする」：カーソルを置かなくても見えるように右上に出しておく */
+.tile-promote { display: none; position: absolute; right: 8px; top: 8px; height: 28px; padding: 0 10px; border: 0; border-radius: 6px; background: rgba(0, 0, 0, 0.66); color: var(--fg); font-size: 12px; font-weight: 700; cursor: pointer; }
+.tile-promote:hover { background: var(--accent); color: #111; }
+.tile.is-sub .tile-promote { display: block; }
+.tile.is-sub:hover .tile-promote, .tile.is-sub:focus-within .tile-promote { display: none; }
+.tile-btn[hidden] { display: none; }
+@media (hover: none) { .tile.is-sub .tile-promote { display: none; } }
