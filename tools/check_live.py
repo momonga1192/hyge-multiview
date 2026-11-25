@@ -36,7 +36,7 @@ def check(key):
         url = f"https://www.youtube.com/channel/{ref}/live" if kind == "ytc" else f"https://www.youtube.com/watch?v={ref}"
         html = fetch(url)
         live = '"isLive":true' in html and '"isUpcoming":true' not in html
-        m = re.search(r'<link rel="canonical" href="https://www\.youtube\.com/watch\?v=([A-Za-z0-9_-]{11})"', html)
+        m = re.search(r'"videoDetails":\{"videoId":"([A-Za-z0-9_-]{11})"', html) or re.search(r'<link rel="canonical" href="https://www\.youtube\.com/watch\?v=([A-Za-z0-9_-]{11})"', html)
         return key, live, (m.group(1) if (live and m) else None)
     except Exception as e:  # 1件の失敗で全体を止めない
         return key, None, str(e)[:120]
